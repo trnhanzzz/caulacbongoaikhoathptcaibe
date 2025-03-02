@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLB Ngoại Khóa Trường THPT Cái Bè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #1e90ff, #00b4db, #00ddeb);
+            animation: gradientBG 10s ease infinite;
+            overflow: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('thptcaibe.jpg') no-repeat center/cover;
+            opacity: 0.4;
+            z-index: 0;
+            filter: blur(8px);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.2s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .hero h1 {
+            font-size: 4em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            -webkit-text-stroke: 1.5px #00b4db;
+            text-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 191, 255, 0.7);
+            margin-bottom: 25px;
+        }
+        .hero p {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #f0f8ff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .hero-img {
+            width: 85%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        }
+        .hero-img:hover {
+            transform: scale(1.08) translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8em; -webkit-text-stroke: 1px #00b4db; }
+            .hero p { font-size: 1.2em; }
+            .hero-img { max-width: 600px; }
+        }
+
+        .slogan {
+            padding: 100px 0;
+            background: #f0f8ff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slogan::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.2), transparent);
+            animation: glow 12s infinite;
+        }
+        @keyframes glow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .slogan .row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .block_3 {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            background: linear-gradient(145deg, #fff, #e6f3ff);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        .block_3:hover {
+            transform: translateY(-20px) scale(1.05);
+            background: linear-gradient(145deg, #00b4db, #1e90ff);
+            color: white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        .block_3 h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #1e90ff;
+            transition: color 0.5s;
+        }
+        .block_3:hover h2 {
+            color: white;
+        }
+        .block_3 p {
+            font-size: 1.2em;
+            color: #555;
+            transition: color 0.5s;
+        }
+        .block_3:hover p {
+            color: #f0f8ff;
+        }
+
+        .content-table {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #fff, #e6f3ff);
+        }
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .content-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .cell_text, .cell_img {
+            flex: 1;
+            min-width: 400px;
+        }
+        .cell_text h3 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #00b4db;
+            background: linear-gradient(to right, #00b4db, #1e90ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .cell_text p, .cell_text ul {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.9;
+        }
+        .cell_text ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+        .cell_text ul li {
+            padding-left: 35px;
+            margin: 15px 0;
+            position: relative;
+            transition: transform 0.4s;
+        }
+        .cell_text ul li:hover {
+            transform: translateX(15px);
+        }
+        .cell_text ul li:before {
+            content: "➤";
+            color: #00ddeb;
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        .cell_img img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.6s ease;
+            background: #fff;
+            padding: 20px;
+        }
+        .cell_img img:hover {
+            transform: scale(1.06) translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        a {
+            display: inline-block;
+            color: #1e90ff;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: rgba(30, 144, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+        a:hover {
+            color: white;
+            background: #1e90ff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .content-row { flex-direction: column; }
+            .cell_text, .cell_img { min-width: 100%; }
+            .cell_img img { height: 400px; }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e272e, #2c3e50);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            text-align: center;
+        }
+        footer .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin: 20px 0;
+            transition: transform 0.4s;
+        }
+        footer ul li:hover {
+            transform: translateX(15px);
+        }
+        footer a {
+            color: #e6f3ff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.4s ease;
+        }
+        footer a:hover {
+            color: #00ddeb;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>CLB Ngoại Khóa THPT Cái Bè</h1>
+            <p>Nơi hội tụ đam mê, khơi nguồn cảm hứng và làm rực rỡ tuổi trẻ qua những hoạt động đầy ý nghĩa.</p>
+            <img src="thptcaibe.jpg" alt="Trường THPT Cái Bè" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Slogan Section -->
+    <section class="slogan">
+        <div class="container">
+            <div class="row">
+                <div class="block_3">
+                    <h2>Khám Phá</h2>
+                    <p>Trải nghiệm mới mẻ, đánh thức tiềm năng ẩn sâu trong bạn.</p>
+                </div>
+                <div class="block_3">
+                    <h2>Kết Nối</h2>
+                    <p>Gắn bó đồng đội, cùng nhau tạo nên những kỷ niệm đẹp.</p>
+                </div>
+                <div class="block_3">
+                    <h2>Tỏa Sáng</h2>
+                    <p>Phát huy tài năng, khẳng định bản thân qua từng hoạt động.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <div class="content-table">
+        <div class="container">
+            <div class="content-row">
+                <div class="cell_text">
+                    <h3>Tỏa Sáng Tri Thức - Rực Rỡ Thanh Xuân</h3>
+                    <p>CLB Ngoại Khóa - nơi bạn lan tỏa trí tuệ rực rỡ, khơi nguồn đam mê học hỏi, phát triển bản thân toàn diện và ghi dấu thanh xuân bằng những hành trình khám phá tuyệt vời, nơi mỗi bước đi đều trở thành dấu ấn vĩnh cửu trong cuốn sách tuổi trẻ đầy sắc màu.</p>
+                </div>
+                <div class="cell_img">
+                    <img src="hoctap.webp" alt="Hoạt động ngoại khóa">
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="cell_img">
+                    <img src="thethao.jpg" alt="CLB Thể thao">
+                </div>
+                <div class="cell_text">
+                    <h3>CLB Thể Thao</h3>
+                    <p>Nơi sức mạnh bùng cháy, tinh thần đồng đội thăng hoa qua những môn thể thao cuốn hút.</p>
+                    <ul>
+                        <li><strong>Bóng chuyền:</strong> Đoàn kết trong từng pha bóng.</li>
+                        <li><strong>Cầu lông:</strong> Nhanh nhẹn, khéo léo.</li>
+                        <li><strong>Điền kinh:</strong> Chinh phục mọi giới hạn.</li>
+                        <li><strong>Võ thuật:</strong> Tôi luyện ý chí thép.</li>
+                    </ul>
+                    <a href="thethao.html">Tham Gia Ngay</a>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="cell_text">
+                    <h3>CLB Văn Hóa - Nghệ Thuật</h3>
+                    <p>Bay bổng sáng tạo, ghi dấu tuổi trẻ qua những sắc màu nghệ thuật và âm hưởng cuộc sống.</p>
+                    <ul>
+                        <li><strong>Hội họa:</strong> Vẽ lên ước mơ.</li>
+                        <li><strong>Âm nhạc:</strong> Hát vang cảm xúc.</li>
+                        <li><strong>Văn học:</strong> Dệt nên câu chuyện.</li>
+                        <li><strong>Nhảy hiện đại:</strong> Bùng nổ phong cách.</li>
+                    </ul>
+                    <a href="vanhoa-nghethuat.html">Tham Gia Ngay</a>
+                </div>
+                <div class="cell_img">
+                    <img src="nghethuat.jpg" alt="CLB Văn hóa - Nghệ thuật">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p>Liên Hệ:</p>
+                    <ul>
+                        <li>Điện thoại: 02733824355</li>
+                        <li>Website: <a href="home.html">CLB Ngoại Khóa</a></li>
+                        <li>Tham gia: <a href="dangki.html">Đăng Ký Ngay</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>Khám Phá Thêm:</p>
+                    <ul>
+                        <li><a href="thethao.html">CLB Thể Thao</a></li>
+                        <li><a href="vanhoa-nghethuat.html">CLB Văn Hóa - Nghệ Thuật</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
